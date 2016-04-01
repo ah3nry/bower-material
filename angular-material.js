@@ -9997,7 +9997,11 @@ MdDividerDirective.$inject = ["$mdTheming"];
 
     function setupListeners() {
       var eventTypes = [
-        'click', 'focusin', 'focusout'
+        'click', 'focusin'
+      /**
+       * Do not close FAB Speed Dial on 'focusout'
+       */
+        //, 'focusout'
       ];
 
       // Add our listeners
@@ -10129,9 +10133,12 @@ MdDividerDirective.$inject = ["$mdTheming"];
         var closestTrigger = $mdUtil.getClosest(event.target, 'md-fab-trigger');
         var closestActions = $mdUtil.getClosest(event.target, 'md-fab-actions');
 
-        if (!closestTrigger && !closestActions) {
+        /**
+         * Do not close FAB Speed Dial on 'outside click'
+         */
+        /*if (!closestTrigger && !closestActions) {
           vm.close();
-        }
+        }*/
       }
     }
 
