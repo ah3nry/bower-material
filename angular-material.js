@@ -9997,7 +9997,11 @@ MdDividerDirective.$inject = ["$mdTheming"];
 
     function setupListeners() {
       var eventTypes = [
-        'click', 'focusin'
+      /**
+       * Do not close FAB SpeedDial on 'click'
+       */
+        //'click',
+        'focusin'
       /**
        * Do not close FAB Speed Dial on 'focusout'
        */
